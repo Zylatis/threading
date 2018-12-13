@@ -1,5 +1,5 @@
 using namespace std;
-#include "catch.hpp"
+//~ #include "catch.hpp"
 // TESTBED FILE FOR THREAD_CLASSES.H
 // Below is just a basic test run of some tasks which make use of the Semaphore and Task classes
 #include "thread_classes.h"
