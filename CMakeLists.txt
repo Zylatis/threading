@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 2.8)
+set(CMAKE_CXX_STANDARD 11)
+project(threading C CXX)
+FIND_PACKAGE ( Threads  )
+#~ find_package( pthreads )
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread")
+add_executable(threading_tests src/threading_tests.cpp)
