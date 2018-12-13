@@ -10,34 +10,34 @@ class Semaphore {
 		condition_variable cv; 
 		
 		// Mutex used to ensure the semaphore status itself does not get race condition shit
-		mutex m; 
-
-	public:
+		mutex m_; 
+		
 		// Max number of threads which can lock this
-		int n; 
+		int n_;
 		
 		// Time until waiting thread gives up and returns timeout flag
 		// Default timeout is infinity (see constructor below), i.e. wait as long as needed
-		double timeout; 
+		double timeout_; 
+	public:
 		
-		Semaphore( int x, double y = 1.*INT_MAX ){  // better way to do this assignment surely...
-			n = x;
-			timeout = y;
+		
+		Semaphore( int x, double y = 1.*INT_MAX ) : n_(x), timeout_(y) { 
+		
 		};
 	
 	// Method for thread to attempt to lock the semaphore and acquire the resource
 	bool lock(){
 		// Define a unique lock for this semaphores mutex. unique lock just means it unlocks when going out of scope
-		unique_lock<mutex> lk(m);
+		unique_lock<mutex> lk(m_);
 		
 		// A condition variable status object is used to capture the output of the wait_for() call
 		cv_status status;
 		
 		// If no resources are available, try to wait it out
-		if(n == 0){
+		if(n_ == 0){
 			// Tell the thread attempting the lock to wait for a signal from another thread saying
 			// it has released some resources
-			status = cv.wait_for(lk, timeout*sec); 
+			status = cv.wait_for(lk, timeout_*sec); 
 			
 			// If the thread reaches timeout for this lock, tell thread it didn't work
 			// and it's up to the thread/task to know what to do with that info
@@ -46,16 +46,16 @@ class Semaphore {
 			}
 		}		
 		// If lock is successful, reduce the available counter by one, return successful
-		n--; 
+		n_--; 
 		return 1;
 	}
 	
 	// Method to unlock this mutex and notify another thread (as determind by OS scheduler)
 	void unlock( ){
 		// Lock semaphore to prevent race condition fuckery
-		unique_lock<mutex> lk(m);		
+		unique_lock<mutex> lk(m_);		
 		// Add back resource released by this thread
-		n++;
+		n_++;
 		// Notify another thread it can begin work
 		cv.notify_one();
 			

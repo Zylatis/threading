@@ -1,3 +1,5 @@
+using namespace std;
+#include "catch.hpp"
 // TESTBED FILE FOR THREAD_CLASSES.H
 // Below is just a basic test run of some tasks which make use of the Semaphore and Task classes
 #include "thread_classes.h"
@@ -52,5 +54,8 @@ int main ( int argc, char *argv[] ){
 	t1.join();
 	t2.join();
 	t3.join();
+
+
+
 	return 0;
 }
