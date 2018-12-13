@@ -12,7 +12,8 @@ Parent class from which user task classes are derived. Deals with all of the res
 
 ### Future work
 - Make more versatile using template for wuser defined work functions
+- Thread pools to reduce overhead
 - Thread priority - develop priority queue system for tasks
 - Dynamic task scheduliing - develop scheduler to deal with when there are more tasks than threads, and to free up idle threads if their tasks are stuck for one whos resources are available
 
-The last two may be straying into OS territory so possibly useless/wasteful
+The last two may be straying into OS territory so possibly useless/wasteful. Also needed: good example use cases
