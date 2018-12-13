@@ -1,4 +1,4 @@
-#include <omp.h> //for parallelization
+#include <omp.h>
 #include <iostream>                                                             
 #include <fstream>    
 #include <ctime>
@@ -13,8 +13,11 @@
 #include <cstdlib>
 #include <functional>
 #include <iomanip>
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <random>
 #include <queue>
+#include <stack> 
+#include <climits>
+#include <thread>
+#include <mutex>
+#include <condition_variable>
 using namespace std;
