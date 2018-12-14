@@ -1,5 +1,6 @@
-# C++ Task-based Multi-threading Library
-
+# C++ Task-based Multi-threading Library 
+[![Build Status](your travis url for the repo here.png)](https://travis-ci.org/Zylatis/threading)
+	
 A simple attempt at a low-ish level library of functions/classes to enable task-based concurrency and parallelism.
 
 ### Current functionality
