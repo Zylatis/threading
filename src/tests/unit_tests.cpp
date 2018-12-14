@@ -5,6 +5,9 @@ using namespace std;
 #include "../imports.h"
 #include "../thread_classes.h"
 
+unsigned int factorial( unsigned int number ) {
+    return number <= 1 ? number : factorial(number-1)*number;
+}
 
 TEST_CASE( "Factorials are computed", "[factorial]" ) {
     REQUIRE( Factorial(1) == 1 );
