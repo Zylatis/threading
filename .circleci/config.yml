@@ -24,4 +24,7 @@ jobs:
           command: 'cmake --build build'
       - run:
           name: Point Unit Testing
+          command: './build/unit_tests'
+      - run:
+          name: Run examples
           command: './build/threading_tests'
