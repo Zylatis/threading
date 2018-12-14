@@ -25,4 +25,6 @@ jobs:
       - run:
           name: Point Unit Testing
           command: './build/unit_tests'
-     
+      - run:
+          name: Run examples
+          command: './build/threading_tests'
