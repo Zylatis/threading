@@ -13,4 +13,5 @@ script:
   - cmake -H. -Bbuild
   - cmake --build build
   - ./build/unit_tests
+  - ./build/threading_examples
 
