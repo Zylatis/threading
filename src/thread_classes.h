@@ -42,12 +42,12 @@ class Semaphore {
 			// If the thread reaches timeout for this lock, tell thread it didn't work
 			// and it's up to the thread/task to know what to do with that info
 			if( status == cv_status::timeout ){
-				return 0;
+				return false;
 			}
 		}		
 		// If lock is successful, reduce the available counter by one, return successful
 		n_--; 
-		return 1;
+		return true;
 	}
 	
 	// Method to unlock this mutex and notify another thread (as determind by OS scheduler)
