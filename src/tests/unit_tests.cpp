@@ -1,9 +1,10 @@
 #define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
-#include "headers/catch.hpp"
+using namespace std;
 
-unsigned int Factorial( unsigned int number ) {
-    return number <= 1 ? number : Factorial(number-1)*number;
-}
+#include "headers/catch.hpp"
+#include "../imports.h"
+#include "../thread_classes.h"
+
 
 TEST_CASE( "Factorials are computed", "[factorial]" ) {
     REQUIRE( Factorial(1) == 1 );

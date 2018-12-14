@@ -27,4 +27,4 @@ jobs:
           command: './build/unit_tests'
       - run:
           name: Run examples
-          command: './build/threading_tests'
+          command: './build/threading_examples'
